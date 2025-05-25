@@ -1,5 +1,8 @@
 name: Build and Deploy to Prod
 
+on:
+  workflow_dispatch:
+
 jobs:
   build:
     name: "Build"
