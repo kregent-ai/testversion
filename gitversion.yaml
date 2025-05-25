@@ -1,0 +1,41 @@
+next-version: v1.0.0
+increment: Inherit
+tag-prefix: '[vV]'
+major-version-bump-message: '\+semver:\s?(major)'
+minor-version-bump-message: '\+semver:\s?(minor)'
+patch-version-bump-message: '\+semver:\s?(patch)'
+no-bump-message: '\+semver:\s?(none|skip)'
+commit-message-incrementing: Enabled
+commit-date-format: 'yyyy-MM-dd'
+branches:
+  main:
+    regex: ^master$|^main$
+    mode: ContinuousDeployment
+    increment: Patch
+    track-merge-target: false
+    tracks-release-branches: false
+    is-release-branch: false
+  release:
+    regex: ^release?[/-]
+    label: stage
+    mode: ContinuousDelivery
+    increment: Patch
+    track-merge-target: false
+    tracks-release-branches: false
+    is-release-branch: true
+    pre-release-weight: 1000
+  feature:
+    regex: ^(feature|hotfix)?[/-](?<BranchName>.+)
+    mode: ContinuousDelivery
+    increment: Inherit
+    track-merge-target: false
+    tracks-release-branches: false
+    is-release-branch: false
+  develop:
+    regex: ^dev(elop)?(ment)?$
+    label: sandbox
+    mode: ContinuousDelivery
+    increment: Inherit
+    track-merge-target: true
+    tracks-release-branches: true
+    is-release-branch: false
