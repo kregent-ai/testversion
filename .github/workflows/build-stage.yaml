@@ -28,5 +28,5 @@ jobs:
         id: version_step
         uses: gittools/actions/gitversion/execute@v3.2.1
         with:
-          useConfigFile: true
+          # useConfigFile: true
           arguments: '/showvariable FullSemVer'
