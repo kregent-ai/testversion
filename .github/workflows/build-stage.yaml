@@ -24,6 +24,9 @@ jobs:
         run: |
           echo "Hello, world!"
 
-      - name: Determine Version
+      - name: Output the FullSemVer variable
         id: version_step
         uses: gittools/actions/gitversion/execute@v3.2.1
+        with:
+          useConfigFile: true
+          arguments: '/showvariable FullSemVer'
