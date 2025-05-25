@@ -21,7 +21,7 @@ jobs:
 
       - name: Debug
         run: |
-          sleep 30
+          sleep 20
           echo "Hello, world!"
 
       - name: Determine Version
