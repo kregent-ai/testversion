@@ -1,13 +1,9 @@
-name: Build for Develop
+name: Build and Deploy to Sandbox
 
 on:
   push:
     branches:
       - develop
-
-concurrency:
-  group: sandbox-build
-  cancel-in-progress: true
 
 jobs:
   build:
