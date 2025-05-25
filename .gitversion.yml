@@ -17,7 +17,7 @@ branches:
     is-release-branch: false
   release:
     regex: ^release?[/-]
-    label: ttt
+    label: stage
     mode: ContinuousDelivery
     increment: Patch
     track-merge-target: false
