@@ -33,3 +33,4 @@ jobs:
       - name: Create and push tag
         run: |
           echo "${{ steps.version_step.outputs.semVer }}"
+          echo "${{ steps.version_step.outputs.majorMinorPatch }}"
