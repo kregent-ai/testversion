@@ -29,3 +29,7 @@ jobs:
         uses: gittools/actions/gitversion/execute@v3.2.1
         # with:
           # arguments: '/showvariable FullSemVer'
+
+      - name: Create and push tag
+        run: |
+          echo "${{ steps.version_step.outputs.semVer }}"
