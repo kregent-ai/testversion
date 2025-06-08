@@ -4,7 +4,6 @@ on:
   pull_request:
     branches:
       - develop
-      - main
 
 jobs:
   build:
@@ -13,6 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v3.2.1
@@ -21,9 +22,11 @@ jobs:
 
       - name: Debug
         run: |
-          sleep 30
+          sleep 20
           echo "Hello, world!"
 
-      - name: Determine Version
+      - name: Output the FullSemVer variable
         id: version_step
         uses: gittools/actions/gitversion/execute@v3.2.1
+        with:
+          arguments: '/showvariable FullSemVer'

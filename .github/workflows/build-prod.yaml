@@ -3,6 +3,9 @@ name: Build and Deploy to Prod
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: "Build"
@@ -10,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v3.2.1
@@ -20,6 +25,13 @@ jobs:
         run: |
           echo "Hello, world!"
 
-      - name: Determine Version
+      - name: Output the FullSemVer variable
         id: version_step
         uses: gittools/actions/gitversion/execute@v3.2.1
+
+      - name: Create and push tag
+        run: |
+          echo "SemVer: ${{ steps.version_step.outputs.semVer }}"
+          echo "MajorMinorPatch: ${{ steps.version_step.outputs.majorMinorPatch }}"
+          git tag ${{ steps.version_step.outputs.semVer }}
+          git push origin ${{ steps.version_step.outputs.majorMinorPatch }}
