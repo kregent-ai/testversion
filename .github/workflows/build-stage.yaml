@@ -27,10 +27,10 @@ jobs:
       - name: Output the FullSemVer variable
         id: version_step
         uses: gittools/actions/gitversion/execute@v3.2.1
-        # with:
-          # arguments: '/showvariable FullSemVer'
 
       - name: Create and push tag
         run: |
-          echo "${{ steps.version_step.outputs.semVer }}"
-          echo "${{ steps.version_step.outputs.majorMinorPatch }}"
+          echo "SemVer: ${{ steps.version_step.outputs.semVer }}"
+          echo "MajorMinorPatch: ${{ steps.version_step.outputs.majorMinorPatch }}"
+          git tag ${{ steps.version_step.outputs.semVer }}
+          git push origin ${{ steps.version_step.outputs.semVer }}
