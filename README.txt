@@ -1,7 +1,6 @@
 Види гілок:
-- main
 - release/*
-- feature/* чи hotfix/*
+- feature/* чи hotfix/* чи bug/*
 - develop
 
 Процес розробки:

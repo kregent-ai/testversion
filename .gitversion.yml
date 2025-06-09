@@ -25,7 +25,7 @@ branches:
     is-release-branch: true
     pre-release-weight: 1000
   feature:
-    regex: ^(feature|hotfix)?[/-](?<BranchName>.+)
+    regex: ^(feat|fix|bug)?[/-](?<BranchName>.+)
     mode: ContinuousDelivery
     increment: Inherit
     track-merge-target: false
