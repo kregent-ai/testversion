@@ -33,5 +33,5 @@ jobs:
         run: |
           echo "SemVer: ${{ steps.version_step.outputs.semVer }}"
           echo "MajorMinorPatch: ${{ steps.version_step.outputs.majorMinorPatch }}"
-          git tag ${{ steps.version_step.outputs.majorMinorPatch }}
-          git push origin ${{ steps.version_step.outputs.majorMinorPatch }}
+          git tag "v${{ steps.version_step.outputs.majorMinorPatch }}"
+          git push origin "v${{ steps.version_step.outputs.majorMinorPatch }}"
